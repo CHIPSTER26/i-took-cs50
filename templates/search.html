@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search with Google
+{% endblock %}
+
+{% block main %}
+    <form action="https://duckduckgo.com/" class="mt-4" method="get" target="_blank">
+        <input autocomplete="off" autofocus class="form-control form-control-lg bm-4 mx-auto w-50" name="q" placeholder="Type things in your mind" style="text-align: center;">
+        <span> <br> </span>
+        <button type="submit" class="btn btn-warning" name="btnI">I'm Always Lucky</button>
+    </form>
+{% endblock %}

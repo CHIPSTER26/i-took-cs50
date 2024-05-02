@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quoted
+{% endblock %}
+
+{% block main %}
+    <form action="/quoted" method="post">
+        <div class="mb-3">
+            <p>Symbol: {{ symbolchecked.symbol }}</p>
+            <p>{{ symbolchecked["price"] | usd }}</p>
+            <p> Cash Available : {{ cash | usd }}</p>
+        </div>
+        <a class="btn btn-primary" href="/buy">Buy</a>
+        <a class="btn btn-primary" href="/quote">Quote Again</a>
+    </form>
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<div class="text-center p-3">
+    <p>Welcome {{ user }}, Here is your complete history of transactions</p>
+</div>
+<div class="mb-3">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for activity in activities %}
+            <tr>
+                <td>
+                    <p>{{ activity.symbol }}</p>
+                </td>
+                <td>
+                    <p>{{ activity.qty_shares }}</p>
+                </td>
+                <td>
+                    <p>{{ activity.price | usd }}</p>
+                </td>
+                <td>
+                    <p>{{ activity.timestamp }}</p>
+                </td>
+                <td>
+                    <p>{{ activity.type }}</p>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

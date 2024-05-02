@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+<!-- {% block scripts %}
+<script src="/dashboard"></script>
+{% endblock %} -->
+
+{% block main %}
+    <form class="text-center p-3" id="form" action="/register" method="post">
+        <h6>Please use your full name as username</h6>
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" style="text-align: center;" type="text">
+        </div>
+        <h6>Please provide company name</h6>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="company" placeholder="Company name" style="text-align: center;" type="text">
+        </div>
+        <h6>No minimum characters, any character, no hassle</h6>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="password" placeholder="Password" style="text-align: center;" type="password">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" name="confirmation" placeholder="Re-type password" style="text-align: center;" type="password">
+        </div>
+        <button class="btn btn-dark id="submitBtn" type="submit">Create Account</button>
+    </form>
+{% endblock %}

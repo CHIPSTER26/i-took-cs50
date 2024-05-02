@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+    <form action="/buy" method="post">
+        <div class="mb-3">
+            <input style="text-align: center;" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="symbol" placeholder="Search TSLA" type="text">
+        </div>
+        <div class="mb-3">
+            <input style="text-align: center;" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="shares" placeholder="How many shares?" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Happy to Buy</button>
+    </form>
+
+
+{% endblock %}

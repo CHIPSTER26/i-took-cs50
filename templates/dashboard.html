@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+<form action="/dashboard" method="post">
+    <div>
+        <h2>Welcome {{ user }}</h2>
+    </div>
+    <div class="mb-3">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number of Shares</th>
+                    <th>Current Price</th>
+                    <th>Average price purchase</th>
+                    <th>Total Value</th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider">
+                {% for item in user_summary %}
+                    <tr>
+                        <td>{{ item.symbol }}</td>
+                        <td>{{ item.total_shares }}</td>
+                        <td>{{ item.price | usd }}</td>
+                        <td>{{ item.avg_price | usd }}</td>
+                        <td>{{ item.total_value | usd }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="text-center p-3">
+            <p> Total Value of shares owned : {{ total_valueshares | usd }}</p>
+        </div>
+        <div class="text-center p-3">
+            <p> Cash Available : {{ cash | usd }}</p>
+        </div>
+        <div class="text-center p-3">
+            <p> Your total assets : {{ total_equity | usd }}</p>
+        </div>
+    </div>
+    <a class="btn btn-primary" href="/fund">Add Fund</a>
+    <a class="btn btn-primary" href="/quote">Quote</a>
+    <a class="btn btn-primary" href="/buy">Buy</a>
+    <a class="btn btn-primary" href="/sell">Sell</a>
+</form>
+{% endblock %}

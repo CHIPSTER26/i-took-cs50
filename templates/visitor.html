@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Visitor
+{% endblock %}
+
+{% block main %}
+<div class="text-center p-3">
+    <p>Welcome {{ user }}, The following individuals have recently visited my website</p>
+</div>
+
+<div class="mb-3">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for visitor in visitors %}
+            <tr>
+                <td>
+                    <p>{{ visitor.username }}</p>
+                </td>
+                <td>
+                    <p>{{ visitor.company }}</p>
+                </td>
+                <td>
+                    <p>{{ visitor.date }}</p>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

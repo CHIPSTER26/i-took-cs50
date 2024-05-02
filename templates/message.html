@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Message
+{% endblock %}
+
+{% block main %}
+<div class="text-center p-3">
+    <p>Welcome {{ user }}, I would greatly appreciate it if you could take a moment to leave some comments. Your feedback is invaluable!</p>
+</div>
+
+<form action="/message" method="post">
+    <div class="mb-3">
+        <label for="message"></label><br>
+        <textarea id="message" style="text-align: center;" autocomplete="off" autofocus class="form-control mx-auto w-auto" name="message" placeholder="leave message & Comment" type="text" rows="4" cols="25"></textarea>
+    </div>
+    <button class="btn btn-primary" type="submit">Go</button>
+</form>
+
+<div class="mb-3">
+    <table class="table table-striped table-hover table align-middle">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Company</th>
+                <th>Comments</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for message in messages %}
+            <tr>
+                <td>
+                    <p>{{ message.username }}</p>
+                </td>
+                <td>
+                    <p>{{ message.company }}</p>
+                </td>
+                <td>
+                    <p>{{ message.message }}</p>
+                </td>
+                <td>
+                    <p>{{ message.date }}</p>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
